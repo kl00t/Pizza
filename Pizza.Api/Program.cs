@@ -1,3 +1,5 @@
+using Pizza.Api.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +9,7 @@ builder.Services.AddSwaggerGen();
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddSingleton<IPizzaRepository, PizzaRepository>();
 
 var app = builder.Build();
 
