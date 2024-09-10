@@ -9,11 +9,13 @@ namespace Pizza.Api.Controllers;
 [Route("api/[controller]")]
 public class PizzaController : ControllerBase
 {
-    private readonly IPizzaRepository _pizzaRepository;
+    private readonly IRepository<Models.Pizza> _pizzaRepository;
+    private readonly IRepository<Models.Burger> _burgerRepository;
 
-    public PizzaController(IPizzaRepository pizzaRepository)
+    public PizzaController(IRepository<Models.Pizza> pizzaRepository, IRepository<Models.Burger> burgerRepository)
     {
         _pizzaRepository = pizzaRepository;
+        _burgerRepository = burgerRepository;
     }
 
     [HttpGet]

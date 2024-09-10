@@ -1,6 +1,6 @@
 ﻿namespace Pizza.Api.Repository;
 
-public class PizzaRepository : IPizzaRepository
+public class PizzaRepository : Repository<Models.Pizza>
 {
     private readonly List<Models.Pizza> _pizzas = new();
 

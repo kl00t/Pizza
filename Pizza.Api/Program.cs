@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Pizza.Api.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,9 @@ builder.Services.AddSwaggerGen();
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddSingleton<IPizzaRepository, PizzaRepository>();
+builder.Services.AddSingleton<IRepository<Pizza.Api.Models.Pizza>, PizzaRepository>();
+// OR
+builder.Services.AddSingleton<IRepository<Pizza.Api.Models.Burger>, Repository<Pizza.Api.Models.Burger>>();
 
 var app = builder.Build();
 
